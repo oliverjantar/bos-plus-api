@@ -1,7 +1,9 @@
 # Changelog
 
-## [1.8.0] - yyyy-mm-dd
-Version **1.8.0** introduces new Upgrade service `braiins.bos.v1.UpgradeService`.
+## [1.9.0] - yyyy-mm-dd
+
+## [1.8.0] - 2025-11-25
+Version **1.8.0** introduces new Upgrade service `braiins.bos.v1.UpgradeService` and relative power/hashrate target configuration.
 
 ### Added
 * Introduced new field `uid` in the `braiins.bos.v1.PoolGroup` message to get group uid.
