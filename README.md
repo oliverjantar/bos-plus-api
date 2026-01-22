@@ -1,44 +1,47 @@
-# Braiins OS+ Public API
+# Braiins OS Public API
 
-This repository contains protocol buffers for the new Braiins OS+ Public API, which is based on gRPC API technology.
+This repository contains protocol buffers for the new Braiins OS Public API, which is based on gRPC API technology.
 
 
 ### Versions
 
-| Public API Version | BOS+ version |
-|--------------------|--------------|
-| 1.8.0              | 25.11        |
-| 1.7.0              | 25.07        |
-| 1.6.0              | 25.05        |
-| 1.5.0              | 25.03        |
-| 1.4.0              | 25.01        |
-| 1.3.0              | 24.09        |
-| 1.2.0              | 24.06        |
-| 1.1.0              | 24.04        |
-| 1.0.0              | 24.03        |
-| 1.0.0-beta.6       | 24.02        |
-| 1.0.0-beta.5       | 23.12        |
-| 1.0.0-beta.4       | 23.10.1      |
-| 1.0.0-beta.3       | 23.10        |
-| 1.0.0-beta.2       | 23.08        |
-| 1.0.0-beta.1       | 23.05        |
-| 1.0.0-beta         | 23.04        |
-| 1.0.0-alpha.1      | 23.03.3      |
-| 1.0.0-alpha        | 23.03        |
+| Public API Version | Braiins OS version |
+|--------------------|--------------------|
+| 1.8.0              | 25.11              |
+| 1.7.0              | 25.07              |
+| 1.6.0              | 25.05              |
+| 1.5.0              | 25.03              |
+| 1.4.0              | 25.01              |
+| 1.3.0              | 24.09              |
+| 1.2.0              | 24.06              |
+| 1.1.0              | 24.04              |
+| 1.0.0              | 24.03              |
+| 1.0.0-beta.6       | 24.02              |
+| 1.0.0-beta.5       | 23.12              |
+| 1.0.0-beta.4       | 23.10.1            |
+| 1.0.0-beta.3       | 23.10              |
+| 1.0.0-beta.2       | 23.08              |
+| 1.0.0-beta.1       | 23.05              |
+| 1.0.0-beta         | 23.04              |
+| 1.0.0-alpha.1      | 23.03.3            |
+| 1.0.0-alpha        | 23.03              |
 
 ### Overview
 
-The Braiins OS+ Public API, introduced in version 23.03, represents a significant milestone in our platform's evolution. This API sets a standard for all present and forthcoming hardware variants, irrespective of their manufacturer. It provides a unified interface for interacting with mining hardware, enabling seamless integration with third-party applications and services. The API is designed to be intuitive, efficient, and versatile, offering a wide range of functionalities to meet diverse requirements.
+The Braiins OS Public API, introduced in version 23.03, represents a significant milestone in our platform's evolution. This API sets a standard for all present and forthcoming hardware variants, irrespective of their manufacturer. It provides a unified interface for interacting with mining hardware, enabling seamless integration with third-party applications and services. The API is designed to be intuitive, efficient, and versatile, offering a wide range of functionalities to meet diverse requirements.
+
+### Examples
+
+We've curated a collection of examples demonstrating the utilization of our Public API, conveniently hosted on our GitHub repository: https://github.com/braiins/bos-plus-api-demos. These examples serve as practical guides for integrating our API into your projects, showcasing its versatility and ease of use. Explore the repository to discover hands-on demonstrations tailored to various use cases.
 
 ## Getting Started
 
 gRPC is a high-performance remote procedure call (RPC) framework developed by Google. It allows developers to create efficient and reliable communications between client and server applications running on different platforms and written in different programming languages. Read more about gRPC at **[grpc.io](https://grpc.io)**
 
-
 ### Prerequisites
-* Miner must have port 50051 enabled. As of BOS+ version 23.03.1, it should be enabled by default.
+* Miner must have port 50051 enabled. As of Braiins OS version 23.03.1, it should be enabled by default.
 
-There is no specific prerequisite for using BOS+ Public API. It is possible to directly access it using standard GUI tools like **[Postman](https://www.postman.com)**, **[Kreya](https://kreya.app)** or CLI tool like **[grpcurl](https://github.com/fullstorydev/grpcurl)**. Please find an example how to access gRPC api using **grpcurl** below.
+There is no specific prerequisite for using Braiins OS Public API. It is possible to directly access it using standard GUI tools like **[Postman](https://www.postman.com)**, **[Kreya](https://kreya.app)** or CLI tool like **[grpcurl](https://github.com/fullstorydev/grpcurl)**. Please find an example how to access gRPC api using **grpcurl** below.
 
 #### Installation
 Read **https://github.com/fullstorydev/grpcurl**
@@ -51,14 +54,9 @@ Best way to start using our public API is to list available services and describ
 Example of how to list available services in proto file and how to describe service.
 ```shell
 $ grpcurl -import-path ./proto -proto bos/v1/actions.proto list
-```
-```
 braiins.bos.v1.ActionsService
-```
-```shell
+
 $ grpcurl -import-path ./proto -proto bos/v1/actions.proto describe
-```
-```
 braiins.bos.v1.ActionsService is a service:
 service ActionsService {
   // Method to pause mining
@@ -78,16 +76,14 @@ service ActionsService {
 ```
 
 ### Reflection
-BOS+ Public API has gRPC Server Reflection enabled. gRPC Server Reflection provides information about publicly-accessible gRPC services on a server, and assists clients at runtime to construct RPC requests and responses without precompiled service information. It is used by gRPC CLI, which can be used to introspect server protos.
+Braiins OS Public API has gRPC Server Reflection enabled. gRPC Server Reflection provides information about publicly-accessible gRPC services on a server, and assists clients at runtime to construct RPC requests and responses without precompiled service information. It is used by gRPC CLI, which can be used to introspect server protos.
 
 Readme more at **[gRPC Server Reflection Tutorial](https://grpc.github.io/grpc/core/md_doc_server_reflection_tutorial.html)**.
 
 #### Examples
 List available services
 ```shell
-$ grpcurl -plaintext $MINER_IP:50051 list
-```
-```
+$ grpcurl -plaintext miner:50051 list
 braiins.bos.ApiVersionService
 braiins.bos.v1.ActionsService
 braiins.bos.v1.AuthenticationService
@@ -102,9 +98,7 @@ grpc.reflection.v1alpha.ServerReflection
 
 Describe available service
 ```shell
-$ grpcurl -plaintext $MINER_IP:50051 describe
-```
-```
+$ grpcurl -plaintext miner:50051 describe
 braiins.bos.ApiVersionService is a service:
 service ApiVersionService {
   rpc GetApiVersion ( .braiins.bos.ApiVersionRequest ) returns ( .braiins.bos.ApiVersion );
@@ -132,16 +126,13 @@ service AuthenticationService {
 ```
 
 ### Authentication
-Almost all requests require authentication. Requests authorize themselves with a token present in the Authorization header.
+The vast majority of requests necessitate authentication, achieved by presenting a token in the Authorization header. This token primarily functions as a session token rather than an authentication token, mirroring the approach in the Braiins OS GUI. Sessions are time-limited, with tokens expiring after 3600 seconds of inactivity. Renewed activity prolongs the session, effectively extending its expiration. Consequently, a session remains active if requests are consistently made within short intervals.
 
 #### How to get auth token
 Send a request with username and password to **Login** method in **AuthenticationService**. The token is present in the response body in `token` field.
 
 ```shell
-$ AUTH=`grpcurl -plaintext -d '{"username": "root", "password": ""}' $MINER_IP:50051 braiins.bos.v1.AuthenticationService/Login | jq -r .token`
-$ echo $AUTH
-```
-```
+$ grpcurl -plaintext -d '{"username": "xxxx", "password": "yyyy"}' miner:50051 braiins.bos.v1.AuthenticationService/Login
 {
   "token": "eUInGZBQ4yGyKiDe",
   "timeoutS": 3600
@@ -153,9 +144,7 @@ $ echo $AUTH
 To authenticate requests with a token just add `authorization` header with token using `-H` flag.
 
 ```shell
-$ grpcurl -plaintext -H "authorization:$AUTH" $MINER_IP:50051 braiins.bos.v1.MinerService/GetMinerDetails
-```
-```
+$ grpcurl -plaintext -H 'authorization:FvZarvVQLCtzNaM6' miner:50051 braiins.bos.v1.MinerService/GetMinerDetails
 {
   "uid": "lAOJ0RbI6axyOyGf",
   "minerIdentity": {
@@ -178,18 +167,17 @@ $ grpcurl -plaintext -H "authorization:$AUTH" $MINER_IP:50051 braiins.bos.v1.Min
   "system_uptime_s": "90919",
   "status": "MINER_STATUS_NORMAL",
   "kernel_version": "3.8.13+"
+}
 
 ```
 
 ### Version
 It is important to note what version of Public API must be used for communication with the miner. Current API version on the miner is available via `GetApiVersion` method in `braiins.bos.ApiVersionService`. This service does not require authentication.
 ```shell
-$ grpcurl -plaintext $MINER_IP:50051 braiins.bos.ApiVersionService/GetApiVersion
-```
-```
+$ grpcurl -plaintext miner:50051 braiins.bos.ApiVersionService/GetApiVersion
 {
     "major": "1",
-    "minor": "2",
+    "minor": "3",
     "patch": "0",
     "pre": "",
     "build": ""
@@ -239,20 +227,21 @@ Contains license related messages and **LicenseService** with method to read lic
 * **GetLicenseState** - method to read current license state.
 
 #### 8. proto/bos/v1/miner.proto
-Contains miner related messages and **MinerService** with various methods to read info about $MINER_IP:
+Contains miner related messages and **MinerService** with various methods to read info about miner:
 * **GetMinerStatus** - method to fetch miner status,
 * **GetMinerDetails** - method to read miner details info like model, IP, uptime, etc.,
 * **GetMinerStats** - method to read aggregated miner stats,
 * **GetErrors** - method to get all miner errors,
 * **GetHashboards** - method to read miner hashboards state and statistics,
-* **GetSupportArchive** - method to download BOS support archive,
+* **GetSupportArchive** - method to download Braiins OS support archive,
 * **EnableHashboards** - method to enable hashboards,
 * **DisableHashboards** - method to disable hashboards.
 
 #### 9. proto/bos/v1/network.proto
 Contains network related messages and **NetworkService** with various methods to read and modify network settings:
 * **GetNetworkConfiguration** - method to read network configuration,
-* **SetNetworkConfiguration** - method to modify network configuration.
+* **SetNetworkConfiguration** - method to modify network configuration,
+* **GetNetworkInfo** - method to get current network configuration for the default network interface.
 
 #### 10. proto/bos/v1/performance.proto
 Contains tuner related messages and **PerformanceService** with various methods to read or modify tuner:
@@ -276,6 +265,7 @@ Contains pools related messages and **PoolService** with various methods to read
 * **CreatePoolGroup** - method to create pool group
 * **UpdatePoolGroup** - method to update default pool group,
 * **RemovePoolGroup** - method to remove pool group.
+* **SetPoolGroups** - method to set all pool groups at once.
 
 #### 12. proto/bos/v1/units.proto
 Contains protobuf messages representing various units like Voltage, Frequency, etc.
@@ -317,4 +307,4 @@ Contains **ApiVersionService** service with **GetApiVersion** to be able to read
 ### Contact
 Do you have questions or specific needs from the API? Our dev and support teams are always available to help. You can send a request to our support team or open a GitHub issue.
 
-You can also join our Telegram group at https://t.me/BraiinsOS point and customize it to fit your project's specific needs. 
+You can also join our Telegram group at https://t.me/BraiinsOS point and customize it to fit your project's specific needs.
