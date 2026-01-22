@@ -11,6 +11,9 @@
 * Introduced new field `default_fan_pause_runtime` in the `braiins.bos.v1.CoolingConstraints` message to get default fan pause runtime.
 * Introduced new field `fan_pause_runtime_limited_duration_s` in the `braiins.bos.v1.CoolingConstraints` message to get fan pause runtime limited duration.
 
+### Added
+* Introduced new method `SystemUpgrade` in the `braiins.bos.v1.UpgradeService`. User can now send firmware and do system upgrade.
+
 ## [1.8.0] - 2025-11-25
 Version **1.8.0** introduces new Upgrade service `braiins.bos.v1.UpgradeService` and relative power/hashrate target configuration.
 
