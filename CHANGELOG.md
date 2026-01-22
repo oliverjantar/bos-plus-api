@@ -13,6 +13,7 @@
 
 ### Added
 * Introduced new method `SystemUpgrade` in the `braiins.bos.v1.UpgradeService`. User can now send firmware and do system upgrade.
+* Introduced new method `RestoreStock` in the `braiins.bos.v1.MinerService`. User can restore stock firmware.
 
 ## [1.8.0] - 2025-11-25
 Version **1.8.0** introduces new Upgrade service `braiins.bos.v1.UpgradeService` and relative power/hashrate target configuration.
